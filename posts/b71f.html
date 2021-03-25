@@ -85,14 +85,14 @@
 <meta property="og:url" content="https://www.sbblog.top/posts/b71f.html">
 <meta property="og:site_name" content="SbBlog">
 <meta property="og:description" content="前言：官方解释：Redis是一种开放源代码（BSD许可）的内存中数据结构存储，用作数据库，缓存和消息代理。Redis提供数据结构，例如字符串，哈希，列表，集合，带范围查询的排序集合，位图，超日志，地理空间索引和流。Redis具有内置的复制，Lua脚本，LRU驱逐，事务和不同级别的磁盘持久性，并通过Redis Sentinel和Redis Cluster自动分区提供了高可用性。 安装Redis（官网">
-<meta property="og:image" content="https://www.sbblog.top/posts/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png">
-<meta property="og:image" content="https://www.sbblog.top/posts/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312141423409.png">
+<meta property="og:image" content="https://www.sbblog.top/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png">
+<meta property="og:image" content="https://www.sbblog.top/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312141423409.png">
 <meta property="article:published_time" content="2021-03-12T05:13:15.000Z">
-<meta property="article:modified_time" content="2021-03-25T03:10:39.484Z">
+<meta property="article:modified_time" content="2021-03-25T03:34:08.802Z">
 <meta property="article:author" content="一个姓谢的糟老头子">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.sbblog.top/posts/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png">
+<meta name="twitter:image" content="https://www.sbblog.top/uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png">
 
 
 
@@ -345,7 +345,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-03-25T11:10:39+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-25T11:34:08+08:00">
                 2021-03-25
               </time>
             
@@ -446,12 +446,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --with-php-config&#x3D;&#x2F;alidata&#x2F;server&#x2F;php&#x2F;bin&#x2F;php-config</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
 <p>安装成功后会给你一个路径</p>
-<p><img src="uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png" alt="image-20210312140831580"></p>
+<p><img src="../uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312140831580.png" alt="image-20210312140831580"></p>
 <p>将扩展加入php配置文件php.ini中的Dynamic Extensions下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;alidata&#x2F;server&#x2F;php&#x2F;etc&#x2F;php.ini</span><br></pre></td></tr></table></figure>
 
 <p>这里的扩展路径就是刚刚安装完提示的路径，在vim状态下输入/Dynamic Extensions可快速找到位置</p>
-<p><img src="uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312141423409.png" alt="image-20210312141423409"></p>
+<p><img src="../uploads/Linux%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Redis,php_redis%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B/image-20210312141423409.png" alt="image-20210312141423409"></p>
 <p>重启php服务，进入phpinfo查看扩展。</p>
 
         <script src="/js/needsharebutton.min.js"></script>
