@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言：因为写项目完全靠ide联想，速度有点慢，所以需要完全记下来，又因为英语差，只能靠死记硬背，所以标注了谐音。给自己定个目标，每天记住三个。 Array函数：1array();  谐音：厄瑞定义：创建数组。 1array_change_key_case(array,case);  谐音：厄瑞 陈志 剋 剋四定义：将数组的键值全部更改为大写或小写参数：    array ：必需。规定要使用的数组。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Php函数学习">
+<meta property="og:url" content="https://www.sbblog.top/posts/4b1d.html">
+<meta property="og:site_name" content="SbBlog">
+<meta property="og:description" content="前言：因为写项目完全靠ide联想，速度有点慢，所以需要完全记下来，又因为英语差，只能靠死记硬背，所以标注了谐音。给自己定个目标，每天记住三个。 Array函数：1array();  谐音：厄瑞定义：创建数组。 1array_change_key_case(array,case);  谐音：厄瑞 陈志 剋 剋四定义：将数组的键值全部更改为大写或小写参数：    array ：必需。规定要使用的数组。">
+<meta property="article:published_time" content="2020-04-13T03:45:09.000Z">
+<meta property="article:modified_time" content="2021-03-09T08:33:30.308Z">
+<meta property="article:author" content="一个姓谢的糟老头子">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.sbblog.top/posts/4b1d.html"/>
+
+
+
+
+  <title>Php函数学习 | SbBlog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SbBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+                
+                首页
+              </a>
+            </li>
+        
+      
+        
+        
+            <li class="menu-item menu-item-about">
+              <a href="/about/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+                
+                关于
+              </a>
+            </li>
+        
+      
+        
+        
+      
+        
+        
+            <li class="menu-item menu-item-categories">
+              <a href="/categories/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+                
+                分类
+              </a>
+            </li>
+        
+      
+        
+        
+            <li class="menu-item menu-item-archives">
+              <a href="/archives/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+                
+                归档
+              </a>
+            </li>
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.sbblog.top/posts/4b1d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一个姓谢的糟老头子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SbBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Php函数学习</h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-13T11:45:09+08:00">
+                2020-04-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T16:33:30+08:00">
+                2021-03-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>因为写项目完全靠ide联想，速度有点慢，所以需要完全记下来，又因为英语差，只能靠死记硬背，所以标注了谐音。<br>给自己定个目标，每天记住三个。</p>
+<h2 id="Array函数："><a href="#Array函数：" class="headerlink" title="Array函数："></a>Array函数：</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">array</span>();</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞<br>定义：创建数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_change_key_case(<span class="keyword">array</span>,<span class="keyword">case</span>);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 陈志 剋 剋四<br>定义：将数组的键值全部更改为大写或小写<br>参数：<br>    array ：必需。规定要使用的数组。<br>    case：可选。<br>        CASE_LOWER - 默认值。将数组的键转换为小写字母。<br>        CASE_UPPER - 将数组的键转换为大写字母。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_chunk(<span class="keyword">array</span>,size,preserve_key);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 唱克<br>定义：把数组分割为新的数组<br>参数：<br>    array： 必需。规定要使用的数组。<br>    size： 必需。整数值，规定每个新数组包含多少个元素。<br>    preserve_key：可选。<br>        true - 保留原始数组中的键名。<br>        false - 默认。每个结果数组使用从零开始的新数组索引。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_column(<span class="keyword">array</span>,column_key,index_key);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 卡拉姆<br>定义：返回输入数组中某个单一列的值<br>参数：<br>    array：必需。规定要使用的多维数组（记录集）。<br>    column_key：必需。需要返回值的列。可以是索引数组的列的整数索引，或者是关联数组的列的字符串键值。该参数也可以是 NULL，此时将返回整个数组（配合 index_key 参数来重置数组键的时候，非常有用）。<br>    index_key： 可选。用作返回数组的索引/键的列。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_combine(keys,values);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 肯败呢<br>定义：通过合并两个数组来创建一个新数组，其中的一个数组是键名，另一个数组的值为键值。<br>参数：<br>    keys：必需。键名数组。<br>    values：必需。键值数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_count_values(<span class="keyword">array</span>);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 康特 外游四<br>定义：用于统计数组中所有值出现的次数。<br>参数：<br>    array：必需。规定需要对值进行计数的数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_diff(array1,array2,array3...);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 戴夫<br>定义：比较两个（或更多个）数组的键值，并返回差集。<br>参数：<br>    array1：必需。与其他数组进行比较的第一个数组。<br>    array2：必需。与第一个数组进行比较的数组。<br>    array3：可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_diff_assoc(array1,array2,array3...);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 戴夫 啊撒课<br>定义：用于比较两个（或更多个）数组的键名和键值 ，并返回差集。<br>参数：<br>    array1：必需。与其他数组进行比较的第一个数组。<br>    array2：必需。与第一个数组进行比较的数组。<br>    array3：可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_diff_key(array1,array2,array3...);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 戴夫 剋<br>定义：用于比较两个（或更多个）数组的键名 ，并返回差集。<br>参数：<br>    array1：必需。与其他数组进行比较的第一个数组。<br>    array2：必需。与第一个数组进行比较的数组。<br>    array3：可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_diff_uassoc(array1,array2,array3...,myfunction);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 戴夫 优啊撒课<br>定义：用于比较两个（或更多个）数组的键名和键值 ，并返回差集。<br>参数：<br>    array1：必需。与其他数组进行比较的第一个数组。<br>    array2：必需。与第一个数组进行比较的数组。<br>    array3：可选。与第一个数组进行比较的其他数组。<br>    myfunction： 必需。定义可调用比较函数的字符串。如果第一个参数小于、等于或大于第二个参数，则该比较函数必须返回小于、等于或大于 0 的整数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_diff_ukey(array1,array2,array3...,myfunction);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 戴夫 优剋<br>定义：用于比较两个（或更多个）数组的键名 ，并返回差集。<br>参数：<br>    array1：必需。与其他数组进行比较的第一个数组。<br>    array2：必需。与第一个数组进行比较的数组。<br>    array3：可选。与第一个数组进行比较的其他数组。<br>    myfunction： 必需。定义可调用比较函数的字符串。如果第一个参数小于、等于或大于第二个参数，则该比较函数必须返回小于、等于或大于 0 的整数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_fill(index,number,value);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 肺癌乐<br>定义：用给定的值填充数组，返回的数组有 number 个元素，值为 <em>value</em>。<br>参数：<br>    index： 必需。被返回数组的第一个索引。<br>    number：必需。规定要插入的元素数。<br>    value：必需。规定供填充数组所使用的值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_fill_keys(arraykeys,value);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 肺癌乐 剋四<br>定义：使用指定的键和值填充数组。<br>参数：<br>    arraykeys： 必需。使用该数组的值作为键。非法值将被转换为字符串。<br>    value：必需。填充数组所使用的值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_filter(<span class="keyword">array</span>,callbackfunction);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 肺哦特<br>定义：用回调函数过滤数组中的值。<br>参数：<br>    array： 必需。规定要过滤的数组。<br>    callbackfunction：必需。规定要使用的回调函数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_flip(<span class="keyword">array</span>);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 夫雷破<br>定义：用于反转/交换数组中所有的键名以及它们关联的键值。<br>参数：<br>    array：必需。规定需进行键/值对反转的数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_intersect(array1,array2,array3...);</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 因特菜克特<br>定义：用于比较两个（或更多个）数组的键值，并返回交集。<br>参数：<br>    array1： 必需。与其他数组进行比较的第一个数组。<br>    array2： 必需。与第一个数组进行比较的数组。<br>    array3： 可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_intersect_assoc(array1,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 因特菜克特 啊撒课<br>定义：用于比较两个（或更多个）数组的键名和键值，并返回交集。<br>参数：<br>    array1： 必需。与其他数组进行比较的第一个数组。<br>    array2： 必需。与第一个数组进行比较的数组。<br>    array3： 可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_intersect_key(array1,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 因特菜克特 剋<br>定义：用于比较两个（或更多个）数组的键名 ，并返回交集。<br>参数：<br>    array1： 必需。与其他数组进行比较的第一个数组。<br>    array2： 必需。与第一个数组进行比较的数组。<br>    array3： 可选。与第一个数组进行比较的其他数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_intersect_ukey(array1,array2,array3...,myfunction)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 因特菜克特 优剋<br>定义：用于比较两个（或更多个）数组的键名 ，并返回交集。<br>参数：<br>    array1： 必需。与其他数组进行比较的第一个数组。<br>    array2： 必需。与第一个数组进行比较的数组。<br>    array3： 可选。与第一个数组进行比较的其他数组。<br>    myfunction：必需。定义可调用比较函数的字符串。如果第一个参数小于、等于或大于第二个参数，则该比较函数必须返回小于、等于或大于 0 的整数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_intersect_uassoc(array1,array2,array3...,myfunction)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 因特菜克特 优啊撒课<br>定义：用于比较两个（或更多个）数组的键名和键值 ，并返回交集。<br>参数：<br>    array1： 必需。与其他数组进行比较的第一个数组。<br>    array2： 必需。与第一个数组进行比较的数组。<br>    array3： 可选。与第一个数组进行比较的其他数组。<br>    myfunction：必需。定义可调用比较函数的字符串。如果第一个参数小于、等于或大于第二个参数，则该比较函数必须返回小于、等于或大于 0 的整数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_key_exists(key,<span class="keyword">array</span>)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 剋 A死菜特死<br>定义：检查某个数组中是否存在指定的键名，如果键名存在则返回 true，如果键名不存在则返回 false。<br>参数：<br>    key： 必需。规定键名。<br>    array： 必需。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_keys(<span class="keyword">array</span>,value,strict)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 剋死<br>定义：返回包含数组中所有键名的一个新数组。<br>参数：<br>    array： 必需。规定数组。<br>    value： 可选。您可以指定键值，然后只有该键值对应的键名会被返回。<br>    strict：可选。与 <em>value</em> 参数一起使用。<br>        true - 返回带有指定键值的键名。依赖类型，数字 5 与字符串 “5” 是不同的。<br>        false - 默认值。不依赖类型，数字 5 与字符串 “5” 是相同的。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_map(myfunction,array1,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 漫坡<br>定义：将用户自定义函数作用到数组中的每个值上，并返回用户自定义函数作用后的带有新值的数组。<br>参数：<br>    myfunction： 必需。用户自定义函数的名称，或者是 null。<br>    array1：必需。规定数组。<br>    array2：可选。规定数组。<br>    array3：可选。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_merge(array1,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 墨池<br>定义：把一个或多个数组合并为一个数组。<br>参数：<br>    array1：必需。规定数组。<br>    array2：可选。规定数组。<br>    array3：可选。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_merge_recursive(array1,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 墨池 软壳塞夫<br>定义：把一个或多个数组合并为一个数组。该函数与array_merge()函数的区别在于处理两个或更多个数组元素有相同的键名时。array_merge_recursive() 不会进行键名覆盖，而是将多个相同键名的值递归组成一个数组。<br>参数：<br>    array1：必需。规定数组。<br>    array2：可选。规定数组。<br>    array3：可选。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_multisort(array1,sorting order,sorting type,array2,array3...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 毛体扫特<br>定义：array_multisort() 函数返回排序数组。您可以输入一个或多个数组。函数先对第一个数组进行排序，接着是其他数组，如果两个或多个值相同，它将对下一个数组进行排序。<br>参数：<br>    array1：必需。规定数组。<br>    sorting order：可选。规定排列顺序。<br>        可能的值：<br>            SORT_ASC - 默认。按升序排列 (A-Z)。<br>            SORT_DESC - 按降序排列 (Z-A)。<br>    sorting type：可选。规定排序类型。<br>        可能的值：<br>            SORT_REGULAR - 默认。把每一项按常规顺序排列（Standard ASCII，不改变类型）。<br>            SORT_NUMERIC - 把每一项作为数字来处理<br>            SORT_STRING - 把每一项作为字符串来处理。<br>            SORT_LOCALE_STRING - 把每一项作为字符串来处理，基于当前区域设置（可通过 setlocale() 进行更改）。<br>            SORT_NATURAL - 把每一项作为字符串来处理，使用类似 natsort() 的自然排序。<br>            SORT_FLAG_CASE - 可以结合（按位或）SORT_STRING 或 SORT_NATURAL 对字符串进行排序，不区分大小写。</p>
+<p>​    array2：可选。规定数组。<br>​    array3：可选。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_pad(<span class="keyword">array</span>,size,value)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 派的<br>定义：将指定数量的带有指定值的元素插入到数组中。<br>参数：<br>    array：必需。规定数组。<br>    size：必需。规定从函数返回的数组中元素的个数。<br>    value：必需。规定从函数返回的数组中新元素的值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_pop(<span class="keyword">array</span>)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 怕噗<br>定义：删除数组中的最后一个元素。<br>参数：<br>    array：必需。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_product(<span class="keyword">array</span>)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 噗绕刀可特<br>定义：计算并返回数组的乘积。<br>参数：<br>    array：必需。规定数组。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_push(<span class="keyword">array</span>,value1,value2...)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 噗事<br>定义：向第一个参数的数组尾部添加一个或多个元素（入栈），然后返回新数组的长度。<br>参数：<br>    array：必需。规定数组。<br>    value1： 必需。规定要添加的值。<br>    value2：可选。规定要添加的值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array_rand(<span class="keyword">array</span>,number)</span><br></pre></td></tr></table></figure>
+
+<p>谐音：厄瑞 软的<br>定义：从数组中随机选出一个或多个元素，并返回。<br>参数：<br>    array：必需。规定数组。<br>    number： 可选。规定返回多少随机键名。</p>
+
+        <script src="/js/needsharebutton.min.js"></script>
+        <!-- needsharebutton CSS file -->
+        <link href="/css/needsharebutton.min.css" rel="stylesheet" />
+        <div style="text-align:center">
+            <button  class="btn btn-default need-share-button">Share</button>
+        </div>
+        </div>
+      
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/3e2c.html" rel="next" title="Php面试题整理">
+                <i class="fa fa-chevron-left"></i> Php面试题整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/4c2as1.html" rel="prev" title="腾讯广告线索平台（广点通拉取线索信息）">
+                腾讯广告线索平台（广点通拉取线索信息） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div>
+        <div class="sidebar-inner"  style="height: 130px;">
+            <!--网易云音乐播放-->
+              
+                 <div>
+                    <embed frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="110" src="//music.163.com/outchain/player?type=2&id=405343231&height=66">
+                 </div>
+              
+        </div>
+        <div class="sidebar-inner" style="margin-top:10px;margin-bottom: 20px;">
+             <div class="tag-cloud-title" type>
+                 目前共计 13 个标签
+             </div>
+             <div class="tag-cloud-tags">
+               <a href="/tags/crm/" style="font-size: 12px; color: #000">crm</a> <a href="/tags/github/" style="font-size: 15.6px; color: #030303">github</a> <a href="/tags/hexo/" style="font-size: 26.4px; color: #0e0e0e">hexo</a> <a href="/tags/javascript/" style="font-size: 12px; color: #000">javascript</a> <a href="/tags/linux/" style="font-size: 19.2px; color: #070707">linux</a> <a href="/tags/mysql/" style="font-size: 12px; color: #000">mysql</a> <a href="/tags/nginx/" style="font-size: 12px; color: #000">nginx</a> <a href="/tags/php/" style="font-size: 30px; color: #111">php</a> <a href="/tags/typecho/" style="font-size: 12px; color: #000">typecho</a> <a href="/tags/unblockneteasemusic/" style="font-size: 19.2px; color: #070707">unblockneteasemusic</a> <a href="/tags/windows/" style="font-size: 15.6px; color: #030303">windows</a> <a href="/tags/design-pattern/" style="font-size: 22.8px; color: #0a0a0a">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 12px; color: #000">软件</a>
+             </div>
+        </div>
+        <div class="sidebar-inner">
+
+          
+
+          
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+                站点概览
+              </li>
+            </ul>
+          
+
+          <section class="site-overview-wrap sidebar-panel">
+            <div class="site-overview">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                  <img class="site-author-image" itemprop="image"
+                    src="/uploads/avatar.png"
+                    alt="一个姓谢的糟老头子" />
+                
+                  <p class="site-author-name" itemprop="name">一个姓谢的糟老头子</p>
+                  <p class="site-description motion-element" itemprop="description"></p>
+              </div>
+
+              <nav class="site-state motion-element">
+
+                
+                  <div class="site-state-item site-state-posts">
+                      <a href="/archives">
+                      <span class="site-state-item-count">28</span>
+                      <span class="site-state-item-name">日志</span>
+                    </a>
+                  </div>
+                
+
+                
+                  
+                  
+                  <div class="site-state-item site-state-categories">
+                    <a href="/categories/index.html">
+                      <span class="site-state-item-count">3</span>
+                      <span class="site-state-item-name">分类</span>
+                    </a>
+                  </div>
+                
+
+              </nav>
+
+              
+
+              
+                <div class="links-of-author motion-element" style="margin-left: 25px;">
+                    
+                      <span class="links-of-author-item">
+                        <a href="mailto:xie950513@gmail.com" target="_blank" title="E-Mail">
+                          
+                            <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                      </span>
+                    
+                      <span class="links-of-author-item">
+                        <a href="https://xie.sbblog.top" target="_blank" title="Music">
+                          
+                            <i class="fa fa-fw fa-music"></i>Music</a>
+                      </span>
+                    
+                </div>
+              
+
+
+              
+              
+
+              
+              
+
+              
+
+            </div>
+          </section>
+
+          
+          <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                
+                  
+                
+
+                
+                  <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Array函数："><span class="nav-number">2.</span> <span class="nav-text">Array函数：</span></a></li></ol></div>
+                
+
+              </div>
+            </section>
+          <!--/noindex-->
+          
+
+          
+        </div>
+    </div>
+  </aside>
+
+
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一个姓谢的糟老头子</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">32.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<img src="/images/beian.png"  style="display:inline" />
+<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010402001135" target="_blank">
+<span class="lh s-bottom-recordcode"> 津公网安备 12010402001135号</span>
+</a>
+<span class="lh">&nbsp; 津ICP备18007229号</span></div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    <!-- 代码块复制功能 -->
+    <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+    <!-- 分享至微信 -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script>
+          /*
+           * 注意：
+           * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+           * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+           * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+           *
+           * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+           * 邮箱地址：weixin-open@qq.com
+           * 邮件主题：【微信JS-SDK反馈】具体问题
+           * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+           */
+           var  url = window.location.href;
+           if(getCookie('isreload') == null){setCookie('isreload','1');}
+           function setCookie(name,value)
+           {
+               var Days = 30;
+               var exp = new Date();
+               exp.setTime(exp.getTime() + Days*24*60*60*1000);
+               document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+           }
+           function getCookie(name)
+           {
+               var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+               if(arr=document.cookie.match(reg))
+                   return unescape(arr[2]);
+               else
+                   return null;
+           }
+
+           $.ajax({
+                   type : "get",
+                   url : "https://www.sbblog.top/php/jssdk.php?url="+url,
+                   dataType : "jsonp",
+                   jsonp: "callback",
+                   jsonpCallback:"success_jsonpCallback",
+                   success : function(data){
+                       wx.config({
+                         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                         appId: data.appId, // 必填，公众号的唯一标识
+                         timestamp: data.timestamp, // 必填，生成签名的时间戳
+                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                         signature: data.signature,// 必填，签名
+                         jsApiList: ["updateAppMessageShareData","updateTimelineShareData"] // 必填，需要使用的JS接口列表
+                       });
+                   },
+                   error:function(data){
+                       if(getCookie('isreload')<3){
+                        location.reload(); //如果加载失败刷新页面重新加载
+                       }
+                       var i = getCookie('isreload');
+                       setCookie('isreload',++i);
+                   }
+               });
+
+                wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+                  wx.updateAppMessageShareData({
+                    title: document.title, // 分享标题
+                    desc: '       愿你撞过的南墙，都成为坦途，愿你遇见的绝望，都成为盛放。', // 分享描述
+                    link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: 'https://oldmanxie.github.io/images/share.jpg', // 分享图标
+                    success: function () {
+                      // 设置成功
+                    }
+                  });
+                  wx.updateTimelineShareData({
+                      title: document.title, // 分享标题
+                      link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                      imgUrl: 'https://oldmanxie.github.io/images/share.jpg', // 分享图标
+                      success: function () {
+                        // 设置成功
+                      }
+                    })
+                });
+               wx.error(function (res) {
+                   //alert(res.errMsg);//错误提示
+               });
+           </script>
+           <!-- 百度链接提交 -->
+           <script>
+           (function(){
+               var bp = document.createElement('script');
+               var curProtocol = window.location.protocol.split(':')[0];
+               if (curProtocol === 'https') {
+                   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+               }
+               else {
+                   bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+               }
+               var s = document.getElementsByTagName("script")[0];
+               s.parentNode.insertBefore(bp, s);
+           })();
+           </script>
+
+</body>
+</html>

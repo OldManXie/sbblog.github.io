@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言：整合网上资源和自我面试过程中的面试题。毕竟不是大牛，基础也没有很牢固，所以特新建此篇文章并持续更新，以供以后刷题观看。 面试题：Web类型题1. HTTP 状态中302、403、 500代码含义？  12345原则。1.消息系列。2.成功系列。3.重定向系列。4.请求错误系列。5.服务器错误系列。302：暂时性转移又称暂时重定向。403：禁止访问。500：服务器内部错误。  2. sessi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Php面试题整理">
+<meta property="og:url" content="https://www.sbblog.top/posts/3e2c.html">
+<meta property="og:site_name" content="SbBlog">
+<meta property="og:description" content="前言：整合网上资源和自我面试过程中的面试题。毕竟不是大牛，基础也没有很牢固，所以特新建此篇文章并持续更新，以供以后刷题观看。 面试题：Web类型题1. HTTP 状态中302、403、 500代码含义？  12345原则。1.消息系列。2.成功系列。3.重定向系列。4.请求错误系列。5.服务器错误系列。302：暂时性转移又称暂时重定向。403：禁止访问。500：服务器内部错误。  2. sessi">
+<meta property="article:published_time" content="2020-04-09T02:33:22.000Z">
+<meta property="article:modified_time" content="2021-03-09T08:33:30.310Z">
+<meta property="article:author" content="一个姓谢的糟老头子">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.sbblog.top/posts/3e2c.html"/>
+
+
+
+
+  <title>Php面试题整理 | SbBlog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SbBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+            <li class="menu-item menu-item-home">
+              <a href="/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+                
+                首页
+              </a>
+            </li>
+        
+      
+        
+        
+            <li class="menu-item menu-item-about">
+              <a href="/about/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+                
+                关于
+              </a>
+            </li>
+        
+      
+        
+        
+      
+        
+        
+            <li class="menu-item menu-item-categories">
+              <a href="/categories/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+                
+                分类
+              </a>
+            </li>
+        
+      
+        
+        
+            <li class="menu-item menu-item-archives">
+              <a href="/archives/" rel="section">
+                
+                  <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+                
+                归档
+              </a>
+            </li>
+        
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.sbblog.top/posts/3e2c.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="一个姓谢的糟老头子">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SbBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Php面试题整理</h2>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T10:33:22+08:00">
+                2020-04-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-03-09T16:33:30+08:00">
+                2021-03-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/study/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>整合网上资源和自我面试过程中的面试题。毕竟不是大牛，基础也没有很牢固，所以特新建此篇文章并持续更新，以供以后刷题观看。</p>
+<h2 id="面试题："><a href="#面试题：" class="headerlink" title="面试题："></a>面试题：</h2><h3 id="Web类型题"><a href="#Web类型题" class="headerlink" title="Web类型题"></a>Web类型题</h3><p><strong>1. HTTP 状态中302、403、 500代码含义？</strong></p>
+<blockquote>
+<p>12345原则。1.消息系列。2.成功系列。3.重定向系列。4.请求错误系列。5.服务器错误系列。<br>302：暂时性转移又称暂时重定向。403：禁止访问。500：服务器内部错误。</p>
+</blockquote>
+<p><strong>2. session与coookie的区别是什么，请从协议，产生的原因与作用说明。</strong></p>
+<blockquote>
+<p>区别：session是存储于服务器端，cookie是存储于客户端。session比较安全，cookie通过某些手段可以修改，不安全。session依赖于cookie进行传递。一般情况一个cookie保存的数据大小不超过4k，而session是占用服务器内容，原则上讲可以无限大。<br>产生原因和作用：http是无状态协议。一旦数据交换完毕，客户端与服务器端的连接就会关闭，在次交换数据需要重新建立连接。这就意味着服务器无法从连接上跟踪会话。于是产生出cookie实现跟踪。</p>
+</blockquote>
+<p><strong>3. 表单提交中的Get和Post的异同点</strong></p>
+<blockquote>
+<p>get 请求一般用于向服务端获取数据，post 一般向服务端提交数据。<br>get 传输的参数在 url 中，传递参数大小有限制，post是隐式提交，没有大小限制。<br>get 不安全，post 安全性比get高。<br>get请求在服务端用Request.queryString 接收 ,post 请求在服务端用Requset.form 接收。</p>
+</blockquote>
+<p> <strong>4. 如何在页面之间传递变量 ?</strong></p>
+<blockquote>
+<p>get，post，cookie，session，隐藏表单。</p>
+</blockquote>
+<p><strong>5. 对于大流量的网站，你会采用什么方法来解决访问量？</strong></p>
+<blockquote>
+<p>首先确认服务器硬件是否满足支持当前的流量。<br>优化数据库的访问。<br>禁止外部盗链。<br>控制大文件下载。<br>使用不同的主机分流。<br>使用流量分析统计工具。</p>
+</blockquote>
+<h3 id="Php类型题"><a href="#Php类型题" class="headerlink" title="Php类型题"></a>Php类型题</h3><p><strong>1. Php是什么意思</strong></p>
+<blockquote>
+<p>PHP是PHP的递归首字母缩写：Hypertext Preprocessor，一种用于创建动态和交互式HTML网页的脚本语言。当网站访问者打开页面时，服务器处理PHP命令，然后将结果发送到访问者的浏览器。</p>
+</blockquote>
+<p><strong>2. 什么是面向对象？主要特征是什么？</strong></p>
+<blockquote>
+<p>面向对象是程序的一种设计方式，它利于提高程序的重用性，使程序结构更加清晰。主要特征：封装，继承，多态，如果是4个方面则加上：抽象。</p>
+<p>封装：</p>
+<p>封装是保证软件部件具有优良的模块性的基础,封装的目标就是要实现软件部件的高内聚,低耦合,防止程序相互依赖性而带来的变动影响.</p>
+<p>继承：</p>
+<p>在定义和实现一个类的时候，可以在一个已经存在的类的基础之上来进行，把这个已经存在的类所定义的内容作为自己的内容，并可以加入若干新的内容，或修改原来的方法使之更适合特殊的需要，这就是继承。继承是子类自动共享父类数据和方法的机制，这是类之间的一种关系，提高了软件的可重用性和可扩展性。</p>
+<p>多态：</p>
+<p>多态是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。</p>
+<p>抽象：</p>
+<p>抽象就是找出一些事物的相似和共性之处，然后将这些事物归为一个类，这个类只考虑这些事物的相似和共性之处，并且会忽略与当前主题和目标无关的那些方面，将注意力集中在与当前目标有关的方面。例如，看到一只蚂蚁和大象，你能够想象出它们的相同之处，那就是抽象。</p>
+</blockquote>
+<p><strong>3. 不使用cookie向客户端发送一个cookie.</strong></p>
+<blockquote>
+<p>session_start()开启时，会生成SID常量，当cookie开启时，这个常量为空，当cookie关闭时，会存储PHPSISSID的值。可以在通过在url后增加一个SID参数进行传递SESSIONID的值，从而可以使客户端页面可以使用session里面的值。当客户端开启cookie和服务器端开启session时。浏览器第一次请求，服务器会向浏览器端发送一个cookie里面存储SESSIONID，当浏览器第二次请求时会把已存在的cookie一起提交到服务器端。</p>
+</blockquote>
+<p><strong>4. cookie的设置及获取</strong></p>
+<blockquote>
+<p>设置cookie的值：siecookie(名称，值，保存时间，有效域)<br>获取cookie的值：$_COOKIE[‘名称’]</p>
+</blockquote>
+<p> <strong>5. isset() 和 empty() 区别</strong></p>
+<blockquote>
+<p>isset判断变量是否存在，可传入多个变量，若其中有一个变量不存在则返回false。empty判断变量是否为空，只可传入一个变量，如果为空则返回true。</p>
+</blockquote>
+<p><strong>6. include与require的区别</strong></p>
+<blockquote>
+<p>首先include和require都是引入指定的文件。_once表示只引入一次，即之前已经引入过的不再引入。<br>include()在执行文件时每次都要加载进行读取和评估，require()文件只加载处理一次。<br>include在引入不存文件时产生一个警告且脚本还会继续执行，require则会导致一个致命性错误且脚本停止执行。<br>include()是有条件包含函数，而 require()则是无条件包含函数。<br>include有返回值，而require没有。</p>
+</blockquote>
+<p><strong>7. Php单引号与双引号的区别</strong></p>
+<blockquote>
+<p>单引号不能解释变量，双引号中可以解释变量。<br>单引号中不能转义大多数字符，双引号中可以转义所有字符。<br>（双引号中的单引号可以解释变量和转义字符）</p>
+</blockquote>
+<p><strong>8. 请说明Php中传值和传引用的区别，什么时候传值什么时候传引用</strong></p>
+<blockquote>
+<p>传值：函数范围内对值得任何改变都会在函数外被忽略。<br>传引用：函数范围内对值得任何改变都会影响到函数外得值。<br>按值传递时，php必须复制值。特别是对于大型的字符串和对象来说，这将会是一个代价很大的操作。<br>按引用传递则不需要复制值，对于性能提高很有好处。</p>
+</blockquote>
+<p><strong>9. echo(),print(),print_r()的区别?</strong></p>
+<blockquote>
+<p>echo是php语句，print和print_r是函数，语句没有返回值，函数有返回值。<br>print只能打印简单的数据类型，print_r可以打印复杂的数据类型，echo可以输出一个或多个字符串。</p>
+</blockquote>
+<p><strong>10. 面向对象中接口与抽象类的区别</strong></p>
+<blockquote>
+<p>抽象类：它是一种特殊的，不能被实例化的类，只能作为其他类的父类使用。使用abstract关键字声明。</p>
+<p>接口：它是一种特殊的抽象类，也是一个特殊的类，使用interface声明。</p>
+<p>区别：</p>
+<p>抽象类的操作通过继承关键字extends实现，而接口的使用是通过implements关键字来实现。</p>
+<p>抽象类中有数据成员，可以实现数据的封装，但是接口没有数据成员。</p>
+<p>抽象类中可以有构造方法，但是接口没有构造方法。</p>
+<p>抽象类的方法可以通过private、protected、public关键字修饰（抽象方法不能是private），而接口中的方法只能使用public关键字修饰。</p>
+<p>一个类只能继承于一个抽象类，而一个类可以同时实现多个接口。</p>
+<p>抽象类中可以有成员方法的实现代码，而接口中不可以有成员方法的实现代码。</p>
+</blockquote>
+<p><strong>9.  请写出常见的排序算法</strong></p>
+<blockquote>
+<p>常见排序算法：冒泡，快速，简单选择，堆，直接插入，希尔，合并。</p>
+</blockquote>
+<p><strong>10. 能够使Php和html分开使用的模板</strong></p>
+<blockquote>
+<p>Smarty，template，phplibtemplate，Fasttenplate。</p>
+</blockquote>
+<p><strong>11. 有那些版本控制工具</strong></p>
+<blockquote>
+<p>Clear case，cvs，svn，git，rcs，ccc，pvcs。</p>
+</blockquote>
+<p><strong>12. 中文截取无乱码</strong></p>
+<blockquote>
+<p>mb_substr()</p>
+</blockquote>
+<p><strong>13. 获取客户端和服务端的ip</strong></p>
+<blockquote>
+<p>客户端：$_SERVER[‘REMOTE_ADDR’]<br>服务端：$_SERVER[‘SERVER_ADDR’]</p>
+</blockquote>
+<p><strong>14. 简述 private、 protected、 public修饰符的访问权限。</strong></p>
+<blockquote>
+<p>private : 私有成员, 在类的内部才可以访问。</p>
+<p>protected : 保护成员，该类内部和继承类中可以访问。</p>
+<p>public : 公共成员，完全公开，没有访问限制。</p>
+</blockquote>
+<p><strong>15. 堆和栈的区别？</strong></p>
+<blockquote>
+<p>栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；</p>
+<p>堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小。</p>
+</blockquote>
+<p><strong>16. 什么是构造函数，什么是析构函数，作用是什么?</strong></p>
+<blockquote>
+<p>构造函数（方法）是对象创建完成后第一个被对象自动调用的方法。它存在于每个声明的类中，是一个特殊的成员方法。作用是执行一些初始化的任务。Php中使用__construct()声明构造方法，并且只能声明一个。</p>
+<p>析构函数（方法）作用和构造方法正好相反，是对象被销毁之前最后一个被对象自动调用的方法。是PHP5中新添加的内容作用是用于实现在销毁一个对象之前执行一些特定的操作，诸如关闭文件和释放内存等。</p>
+</blockquote>
+<p><strong>17. 如何重载父类的方法，举例说明</strong></p>
+<blockquote>
+<p>重载，即覆盖父类的方法，也就是使用子类中的方法替换从父类中继承的方法，也叫方法的重写。</p>
+<p>覆盖父类方法的关键是在子类中创建于父类中相同的方法包括方法的名称、参数和返回值类型。PHP中只要求方法的名称相同即可。</p>
+</blockquote>
+<p><strong>18. 常用的魔术方法有哪些？举例说明</strong></p>
+<blockquote>
+<p>php规定以两个下划线（<strong>）开头的方法都保留为魔术方法，所以建议大家函数名最好不用</strong>开头，除非是为了重载已有的魔术方法。</p>
+<p>__construct() 实例化类时自动调用。</p>
+<p>__destruct() 类对象使用结束时自动调用。</p>
+<p>__set() 在给未定义的属性赋值的时候调用。</p>
+<p>__get() 调用未定义的属性时候调用。</p>
+<p>__isset() 使用isset()或empty()函数时候会调用。</p>
+<p>__unset() 使用unset()时候会调用。</p>
+<p>__sleep() 使用serialize序列化时候调用。</p>
+<p>__wakeup() 使用unserialize反序列化的时候调用。</p>
+<p>__call() 调用一个不存在的方法的时候调用。</p>
+<p>__callStatic()调用一个不存在的静态方法是调用。</p>
+<p>__toString() 把对象转换成字符串的时候会调用。比如 echo。</p>
+<p>__invoke() 当尝试把对象当方法调用时调用。</p>
+<p>__set_state() 当使用var_export()函数时候调用。接受一个数组参数。</p>
+<p>__clone() 当使用clone复制一个对象时候调用。</p>
+</blockquote>
+<p><strong>19. $this和self、parent这三个关键词分别代表什么？在哪些场合下使用？</strong></p>
+<blockquote>
+<p>$this 当前对象</p>
+<p>self 当前类</p>
+<p>parent 当前类的父类</p>
+<p>$this在当前类中使用,使用-&gt;调用属性和方法。</p>
+<p>self也在当前类中使用，不过需要使用::调用。</p>
+<p>parent在类中使用。</p>
+</blockquote>
+<p><strong>20. 类中如何定义常量、如何类中调用常量、如何在类外调用常量。</strong></p>
+<blockquote>
+<p>类中的常量也就是成员常量，常量就是不会改变的量，是一个恒值。</p>
+<p>定义常量使用关键字const.</p>
+<p>例如：const PI = 3.1415326;</p>
+<p>无论是类内还是类外，常量的访问和变量是不一样的，常量不需要实例化对象，</p>
+<p>访问常量的格式都是类名加作用域操作符号（双冒号）来调用。</p>
+<p>即：类名 :: 类常量名;</p>
+</blockquote>
+<h3 id="MySQL类型题"><a href="#MySQL类型题" class="headerlink" title="MySQL类型题"></a>MySQL类型题</h3><p><strong>1. 请写出数据类型(int char varchar datetime text)的意思；请问 varchar 和 char有什么区别？</strong></p>
+<blockquote>
+<p>int：整数。char：定长字符。varchar：变长字符。datetime：时间日期。text：文本。<br>varchar与char的区别：char是固定长度的字符串，分配多少空间就会占用多少空间。varchar是可以变长度的字符串，内容又多大就占用多大空间，能有效节省空间。由于varchar类型是可变的，所以在数据长度进行改变时，服务器要进行额外的操作，所以效率回避char低。</p>
+</blockquote>
+<p><strong>2. MyISAM 和 InnoDB 的基本区别？索引结构如何实现？</strong></p>
+<blockquote>
+<p>myisam类型不支持事务，表锁，容易产生碎片，要经常优化，读写速度快，innodb支持事务，行锁，有崩溃修复能力。读写速度慢。<br>创建索引语句：alert table 表名 add index(‘字段名称’) ;</p>
+</blockquote>
+<p><strong>3. mysql_fetch_row()和mysql_fetch_array()的区别</strong></p>
+<blockquote>
+<p>mysql_fetch_row()以索引数组的方式取查询结果集，mysql_fetch_array()以索引数组和关联数组两种方式取查询结果集。</p>
+</blockquote>
+<p><strong>4. sql语句应该考虑哪些安全性</strong></p>
+<blockquote>
+<p>防止sql注入，对特殊字符进行转义，过滤或者使用预编译sql语句绑定。<br>使用最小权限原则，特别注意不要使用root用户权限，为不同操作建立不同权限的用户。<br>当sql报错时，不要返回客户端，可写入log中查看。</p>
+</blockquote>
+<p><strong>5. 优化mysql 数据库方法</strong></p>
+<blockquote>
+<p>选择适当的字段类型，尽量把字段设置为NOTNULL。<br>使用连接（JOIN）来代替子查询(Sub-Queries)。<br>使用联合（UNION）查询代替手动创建临时表。<br>尽量减少使用（LIKE）关键字和通配符。<br>使用事务和外健。</p>
+</blockquote>
+<p><strong>6. 什么是数据库索引，主键索引和唯一索引的区别，索引的缺点是什么</strong></p>
+<blockquote>
+<p>索引是快速寻找那些有特定值的记录。<br>主键索引和唯一索引的区别：主键是一种唯一性索引，但他必须指定为PRIMARY KEY，并且每个表中只能有一个主键。唯一索引的所有值都只能出现一次，即必须唯一。<br>索引的缺点：<br> &nbsp; &nbsp; 创建索引和维护索引需要耗费时间，这种时间随着数据量的增加而增加。<br> &nbsp; &nbsp; 索引需要占用物理空间，除了数据表占据数据空间之外，每个索引还要占据一定的物理空间，如果要建立聚簇索引，需要的空间就会更大。<br> &nbsp; &nbsp; 当对表中的数据进行增删改的时候，索引也需动态维护，这样就降低了数据的维护速度。</p>
+</blockquote>
+<p><strong>7. 数据库中的事务是什么</strong></p>
+<blockquote>
+<p>事务是作为一个单元的一组有序的数据操作，具有原子性，一致性，隔离性，持久性。如果组中的操作都成功，则认为事务成功，即只有一个操作失败，则认定为事务操作失败。如果事务所有操作完成，事务提交，其修改将作用于所有其他数据库进程。如果有一个操作失败，事务将回滚，该事务所有操作的影响都会被取消。</p>
+</blockquote>
+<p><strong>8. 解释左连接，右连接，内连接，全连接</strong></p>
+<blockquote>
+<p>内连接仅选出两张表中相互匹配的数据记录，因此会导致有时我们需要的记录没有被包含进来。内连接是两个表中都必须有连接字段对应值的记录，数据才能被检索出来。<br>左连接和右连接都是外部连接，也就是区别于内连接，它对不满足连接条件的行并不是像内连接一样将数据完全过滤掉，而是保留一部分数据，数据行数不会减少。<br>左连接是只要左边表中有记录，数据就能被检索出来，而右边有的记录必须在左边表中有记录才会被检索出来，右连接则相反。<br>全连接则会返回两个表中所有的数据记录。</p>
+</blockquote>
+<p><strong>9. MySQL有哪些存储引擎</strong></p>
+<blockquote>
+<p>myisam，innodb，bdb，merge，memory，csv，maxdb。</p>
+</blockquote>
+<p><strong>10. 什么是锁？</strong></p>
+<blockquote>
+<p>基本锁类型：锁包括行级锁和表级锁</p>
+<p>数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。</p>
+<p>加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
+</blockquote>
+<p><strong>11. 什么叫视图？游标是什么？</strong></p>
+<blockquote>
+<p>视图是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作，视图通常是有一个表或者多个表的行或列的子集。对视图的修改不影响基本表。它使得我们获取数据更容易，相比多表查询。</p>
+<p>游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
+</blockquote>
+<p><strong>12. 什么是存储过程？用什么来调用？</strong></p>
+<blockquote>
+<p>存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。可以用一个命令对象来调用存储过程。</p>
+</blockquote>
+<p><strong>13. 如何通俗地理解三个范式？</strong></p>
+<blockquote>
+<p>第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解；</p>
+<p>第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性;</p>
+<p>第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余。</p>
+</blockquote>
+<p><strong>14. 说说对SQL语句优化有哪些方法？</strong></p>
+<blockquote>
+<p>Where子句中：where表之间的连接必须写在其他Where条件之前，那些可以过滤掉最大数量记录的条件必须写在Where子句的末尾.HAVING最后。</p>
+<p>用EXISTS替代IN、用NOT EXISTS替代NOT IN。</p>
+<p>避免在索引列上使用计算</p>
+<p>避免在索引列上使用IS NULL和IS NOT NULL</p>
+<p>对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
+<p>应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描</p>
+<p>应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描</p>
+</blockquote>
+<p><strong>14. SQL语句中‘相关子查询’与‘非相关子查询’有什么区别？</strong></p>
+<blockquote>
+<p>非相关子查询是独立于外部查询的子查询，子查询总共执行一次，执行完毕后将值传递给外部查询。</p>
+<p>相关子查询的执行依赖于外部查询的数据，外部查询执行一行，子查询就执行一次。</p>
+<p>因此非相关子查询比相关子查询效率高</p>
+</blockquote>
+
+        <script src="/js/needsharebutton.min.js"></script>
+        <!-- needsharebutton CSS file -->
+        <link href="/css/needsharebutton.min.css" rel="stylesheet" />
+        <div style="text-align:center">
+            <button  class="btn btn-default need-share-button">Share</button>
+        </div>
+        </div>
+      
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/posts/fb20.html" rel="next" title="Hexo使用记录(七):常用命令整理">
+                <i class="fa fa-chevron-left"></i> Hexo使用记录(七):常用命令整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/posts/4b1d.html" rel="prev" title="Php函数学习">
+                Php函数学习 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div>
+        <div class="sidebar-inner"  style="height: 130px;">
+            <!--网易云音乐播放-->
+              
+                 <div>
+                    <embed frameborder="no" border="0" marginwidth="0" marginheight="0" width="210" height="110" src="//music.163.com/outchain/player?type=2&id=405343231&height=66">
+                 </div>
+              
+        </div>
+        <div class="sidebar-inner" style="margin-top:10px;margin-bottom: 20px;">
+             <div class="tag-cloud-title" type>
+                 目前共计 13 个标签
+             </div>
+             <div class="tag-cloud-tags">
+               <a href="/tags/crm/" style="font-size: 12px; color: #000">crm</a> <a href="/tags/github/" style="font-size: 15.6px; color: #030303">github</a> <a href="/tags/hexo/" style="font-size: 26.4px; color: #0e0e0e">hexo</a> <a href="/tags/javascript/" style="font-size: 12px; color: #000">javascript</a> <a href="/tags/linux/" style="font-size: 19.2px; color: #070707">linux</a> <a href="/tags/mysql/" style="font-size: 12px; color: #000">mysql</a> <a href="/tags/nginx/" style="font-size: 12px; color: #000">nginx</a> <a href="/tags/php/" style="font-size: 30px; color: #111">php</a> <a href="/tags/typecho/" style="font-size: 12px; color: #000">typecho</a> <a href="/tags/unblockneteasemusic/" style="font-size: 19.2px; color: #070707">unblockneteasemusic</a> <a href="/tags/windows/" style="font-size: 15.6px; color: #030303">windows</a> <a href="/tags/design-pattern/" style="font-size: 22.8px; color: #0a0a0a">设计模式</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 12px; color: #000">软件</a>
+             </div>
+        </div>
+        <div class="sidebar-inner">
+
+          
+
+          
+            <ul class="sidebar-nav motion-element">
+              <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+                文章目录
+              </li>
+              <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+                站点概览
+              </li>
+            </ul>
+          
+
+          <section class="site-overview-wrap sidebar-panel">
+            <div class="site-overview">
+              <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                
+                  <img class="site-author-image" itemprop="image"
+                    src="/uploads/avatar.png"
+                    alt="一个姓谢的糟老头子" />
+                
+                  <p class="site-author-name" itemprop="name">一个姓谢的糟老头子</p>
+                  <p class="site-description motion-element" itemprop="description"></p>
+              </div>
+
+              <nav class="site-state motion-element">
+
+                
+                  <div class="site-state-item site-state-posts">
+                      <a href="/archives">
+                      <span class="site-state-item-count">28</span>
+                      <span class="site-state-item-name">日志</span>
+                    </a>
+                  </div>
+                
+
+                
+                  
+                  
+                  <div class="site-state-item site-state-categories">
+                    <a href="/categories/index.html">
+                      <span class="site-state-item-count">3</span>
+                      <span class="site-state-item-name">分类</span>
+                    </a>
+                  </div>
+                
+
+              </nav>
+
+              
+
+              
+                <div class="links-of-author motion-element" style="margin-left: 25px;">
+                    
+                      <span class="links-of-author-item">
+                        <a href="mailto:xie950513@gmail.com" target="_blank" title="E-Mail">
+                          
+                            <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                      </span>
+                    
+                      <span class="links-of-author-item">
+                        <a href="https://xie.sbblog.top" target="_blank" title="Music">
+                          
+                            <i class="fa fa-fw fa-music"></i>Music</a>
+                      </span>
+                    
+                </div>
+              
+
+
+              
+              
+
+              
+              
+
+              
+
+            </div>
+          </section>
+
+          
+          <!--noindex-->
+            <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+              <div class="post-toc">
+
+                
+                  
+                
+
+                
+                  <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言："><span class="nav-number">1.</span> <span class="nav-text">前言：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面试题："><span class="nav-number">2.</span> <span class="nav-text">面试题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Web类型题"><span class="nav-number">2.1.</span> <span class="nav-text">Web类型题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Php类型题"><span class="nav-number">2.2.</span> <span class="nav-text">Php类型题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL类型题"><span class="nav-number">2.3.</span> <span class="nav-text">MySQL类型题</span></a></li></ol></li></ol></div>
+                
+
+              </div>
+            </section>
+          <!--/noindex-->
+          
+
+          
+        </div>
+    </div>
+  </aside>
+
+
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">一个姓谢的糟老头子</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">32.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+-->
+<img src="/images/beian.png"  style="display:inline" />
+<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=12010402001135" target="_blank">
+<span class="lh s-bottom-recordcode"> 津公网安备 12010402001135号</span>
+</a>
+<span class="lh">&nbsp; 津ICP备18007229号</span></div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    <!-- 代码块复制功能 -->
+    <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+    <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+    <!-- 分享至微信 -->
+    <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script>
+          /*
+           * 注意：
+           * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+           * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+           * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+           *
+           * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+           * 邮箱地址：weixin-open@qq.com
+           * 邮件主题：【微信JS-SDK反馈】具体问题
+           * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+           */
+           var  url = window.location.href;
+           if(getCookie('isreload') == null){setCookie('isreload','1');}
+           function setCookie(name,value)
+           {
+               var Days = 30;
+               var exp = new Date();
+               exp.setTime(exp.getTime() + Days*24*60*60*1000);
+               document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+           }
+           function getCookie(name)
+           {
+               var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+               if(arr=document.cookie.match(reg))
+                   return unescape(arr[2]);
+               else
+                   return null;
+           }
+
+           $.ajax({
+                   type : "get",
+                   url : "https://www.sbblog.top/php/jssdk.php?url="+url,
+                   dataType : "jsonp",
+                   jsonp: "callback",
+                   jsonpCallback:"success_jsonpCallback",
+                   success : function(data){
+                       wx.config({
+                         debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                         appId: data.appId, // 必填，公众号的唯一标识
+                         timestamp: data.timestamp, // 必填，生成签名的时间戳
+                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                         signature: data.signature,// 必填，签名
+                         jsApiList: ["updateAppMessageShareData","updateTimelineShareData"] // 必填，需要使用的JS接口列表
+                       });
+                   },
+                   error:function(data){
+                       if(getCookie('isreload')<3){
+                        location.reload(); //如果加载失败刷新页面重新加载
+                       }
+                       var i = getCookie('isreload');
+                       setCookie('isreload',++i);
+                   }
+               });
+
+                wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
+                  wx.updateAppMessageShareData({
+                    title: document.title, // 分享标题
+                    desc: '       愿你撞过的南墙，都成为坦途，愿你遇见的绝望，都成为盛放。', // 分享描述
+                    link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: 'https://oldmanxie.github.io/images/share.jpg', // 分享图标
+                    success: function () {
+                      // 设置成功
+                    }
+                  });
+                  wx.updateTimelineShareData({
+                      title: document.title, // 分享标题
+                      link: url, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                      imgUrl: 'https://oldmanxie.github.io/images/share.jpg', // 分享图标
+                      success: function () {
+                        // 设置成功
+                      }
+                    })
+                });
+               wx.error(function (res) {
+                   //alert(res.errMsg);//错误提示
+               });
+           </script>
+           <!-- 百度链接提交 -->
+           <script>
+           (function(){
+               var bp = document.createElement('script');
+               var curProtocol = window.location.protocol.split(':')[0];
+               if (curProtocol === 'https') {
+                   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+               }
+               else {
+                   bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+               }
+               var s = document.getElementsByTagName("script")[0];
+               s.parentNode.insertBefore(bp, s);
+           })();
+           </script>
+
+</body>
+</html>
