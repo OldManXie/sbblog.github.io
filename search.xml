@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>test</title>
-    <url>/posts/f82e.html</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>学习</category>
-        <category>错误</category>
-        <category>生活</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-        <tag>linux</tag>
-        <tag>设计模式</tag>
-        <tag>python</tag>
-        <tag>javascript</tag>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux编译安装redis，php_redis扩展教程</title>
     <url>/posts/b71f.html</url>
     <content><![CDATA[<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h2><p>官方解释：Redis是一种开放源代码（BSD许可）的内存中数据结构存储，用作数据库，缓存和消息代理。Redis提供数据结构，例如字符串，哈希，列表，集合，带范围查询的排序集合，位图，超日志，地理空间索引和流。Redis具有内置的复制，Lua脚本，LRU驱逐，事务和不同级别的磁盘持久性，并通过Redis Sentinel和Redis Cluster自动分区提供了高可用性。</p>
@@ -159,10 +140,10 @@
         <category>学习</category>
       </categories>
       <tags>
+        <tag>linux</tag>
         <tag>php</tag>
         <tag>mysql</tag>
         <tag>nginx</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>

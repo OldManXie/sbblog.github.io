@@ -24,4 +24,4 @@ def yasuo(dir_path):
         elif os.path.isdir(dir_path+'/'+i) and not re.match('\.|\_',i):
             yasuo("%s/%s"%(dir_path,i))
 
-yasuo('/var/www/html/www.sbblog.top')
+yasuo('/personal/www/www.sbblog.top')
