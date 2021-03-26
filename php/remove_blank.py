@@ -13,7 +13,8 @@ def minify_html(filename):
                         t.write(l)
     os.remove(filename)
     os.rename(filename+'.tmp',filename)
-    print('%s 已压缩！'%filename)
+    print(filename+'\n')
+    #print('%s 已压缩！'%filename)
 def yasuo(dir_path):
     if dir_path[len(dir_path)-1] == '/':
         dir_path = dir_path[:len(dir_path)-1]
